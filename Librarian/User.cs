@@ -1,4 +1,6 @@
-﻿namespace Librarian
+﻿using Librarian.Model;
+
+namespace Librarian
 {
     internal class User
     {
