@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Librarian.Model
 {
-    public class Settings
+    public class Settings : IModel
     {
         public static List<User> Users { get; set; } = new List<User>();
         public static List<Opus> Opuses { get; set; } = new List<Opus>();

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Librarian
+namespace Librarian.Model
 {
-    public abstract class Opus
+    public abstract class Opus : IModel
     {
     public string Title { get; set; }
     public string Author { get; set; }

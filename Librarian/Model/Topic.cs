@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Librarian.Model
 {
-    public class Topic
+    public class Topic :IModel
     {
         public int Id { get; set; }
         string Name { get; set; }

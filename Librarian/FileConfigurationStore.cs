@@ -8,6 +8,7 @@ namespace Librarian
     public class FileConfigurationStore : IConfigurationStore
     {
         static Settings Settings { get; set; }
+
         private FileConfigurationStore()
         {
             if (File.Exists(".\\Settings.json"))
@@ -56,6 +57,7 @@ namespace Librarian
             PropertyInfo p = _GetProperty<T>();
             return (List<T>)p.GetValue(Settings);
         }
+
         private PropertyInfo _GetProperty<T>()
         {
             var props = Settings.GetType().GetProperties();
@@ -68,6 +70,7 @@ namespace Librarian
                     break;
                 }
             }
+
             return p;
         }
     }
