@@ -1,11 +1,7 @@
 ﻿using Librarian.Model;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Reflection;
 using System.Text;
-using System.Text.Unicode;
-using System.Threading.Tasks;
 
 namespace Librarian
 {
@@ -37,6 +33,42 @@ namespace Librarian
                 string content = JsonConvert.SerializeObject(Settings);
                 File.WriteAllText(".\\Settings.json", content, encoding: Encoding.UTF8);
             }
+        }
+
+        public void Add<T>(T value)
+        {
+            PropertyInfo p = _GetProperty<T>();
+            List<T> list = (List<T>)p.GetValue(Settings);
+            list.Add(value);
+            p.SetValue(Settings, list);
+        }
+
+        public void Remove<T>(T value)
+        {
+            PropertyInfo p = _GetProperty<T>();
+            List<T> list = (List<T>)p.GetValue(Settings);
+            list.Remove(value);
+            p.SetValue(Settings, list);
+        }
+
+        public IEnumerable<T> GetAll<T>()
+        {
+            PropertyInfo p = _GetProperty<T>();
+            return (List<T>)p.GetValue(Settings);
+        }
+        private PropertyInfo _GetProperty<T>()
+        {
+            var props = Settings.GetType().GetProperties();
+            PropertyInfo p = null;
+            foreach (var p1 in props)
+            {
+                if (typeof(T) == p1.PropertyType.GenericTypeArguments[0])
+                {
+                    p = p1;
+                    break;
+                }
+            }
+            return p;
         }
     }
 }
