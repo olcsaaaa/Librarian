@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Librarian.Model
 {
-    internal class Novel : Book
+    public class Novel : Book
     {
         public int ChapterNr { get; set; }
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Librarian.Model
 {
-    internal enum ECoverType
+    public enum ECoverType
     {
         Hardcover,
         Softcover

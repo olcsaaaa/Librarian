@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Librarian.Model
 {
-    internal class Newspaper: Periodical
+    public class Newspaper: Periodical
     {
         public bool Online { get; set; } = false;
         public string? OnlineURL { get; set; } = null;

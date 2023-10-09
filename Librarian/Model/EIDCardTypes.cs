@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Librarian.Model
 {
-    enum EIDCardTypes
+    public enum EIDCardTypes
     {
         Passport,
         StudentId,

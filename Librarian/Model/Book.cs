@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Librarian.Model
 {
-    abstract class Book : Opus
+    public abstract class Book : Opus
     {
         public ECoverType CoverType { get; set; }
         public string ISBN { get; set; }

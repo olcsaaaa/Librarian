@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Librarian.Model
 {
-    internal class ComicBook : Periodical
+    public class ComicBook : Periodical
     {
         public string Category { get; set; }
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Librarian
 {
-    public class Genre
+    public class Category
     {
         public int Id { get; set; }
         string Name { get; set; }

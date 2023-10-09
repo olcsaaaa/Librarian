@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Librarian.Model
 {
-    internal class Language
+    public class Language
     {
         public string Name { get; set; }
         public int Id {  get; set; }

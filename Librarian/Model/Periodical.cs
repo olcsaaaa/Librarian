@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Librarian.Model
 {
-    abstract class Periodical : Opus
+    public abstract class Periodical : Opus
     {
       public int Frequency { get; set; }
         public string Language { get; set; }
