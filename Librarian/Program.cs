@@ -1,19 +1,18 @@
 ﻿using Librarian.Model;
 
-namespace Librarian
+namespace Librarian;
+
+internal class Program
 {
-    internal class Program
+    static void Main()
     {
-        static void Main(string[] args)
-        {
-            //var u = new User()
-            //{
-            //    Name = "Test",
-            //    Email = "test@test.com"
-            //};
-            IConfigurationStore store = FileConfigurationStore.CreateInstance();
-            store.Save();
-            Console.WriteLine(store.ToString());
-        }
+        //var u = new User()
+        //{
+        //    Name = "Test",
+        //    Email = "test@test.com"
+        //};
+        IConfigurationStore store = FileConfigurationStore.CreateInstance();
+        store.Save();
+        Console.WriteLine(store.ToString());
     }
 }

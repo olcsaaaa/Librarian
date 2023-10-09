@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Librarian.Model
-{
+namespace Librarian.Model;
+
     public class Language : IModel
     {
         public string Name { get; set; }
         public int Id {  get; set; }
     }
-}

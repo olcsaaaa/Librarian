@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Librarian.Model
+namespace Librarian.Model;
+
+public class Novel : Book
 {
-    public class Novel : Book
-    {
-        public int ChapterNr { get; set; }
-    }
+    public int ChapterNr { get; set; }
 }

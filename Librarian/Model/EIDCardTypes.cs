@@ -4,8 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Librarian.Model
-{
+namespace Librarian.Model;
     public enum EIDCardTypes
     {
         Passport,
@@ -13,4 +12,3 @@ namespace Librarian.Model
         DrivingLicense,
         NationalId
     }
-}
