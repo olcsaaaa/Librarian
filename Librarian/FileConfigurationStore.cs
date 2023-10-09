@@ -3,8 +3,8 @@ using Newtonsoft.Json;
 using System.Reflection;
 using System.Text;
 
-namespace Librarian
-{
+namespace Librarian;
+
     public class FileConfigurationStore : IConfigurationStore
     {
         static Settings Settings { get; set; }
@@ -74,4 +74,3 @@ namespace Librarian
             return p;
         }
     }
-}

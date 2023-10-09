@@ -5,8 +5,8 @@ using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Librarian.Model
-{
+namespace Librarian.Model;
+
     public class Settings : IModel
     {
         public static List<User> Users { get; set; } = new List<User>();
@@ -16,4 +16,4 @@ namespace Librarian.Model
         public static List<Language> Languages { get; set; } = new List<Language>();
         public static List<Topic> Topics { get; set; } = new List<Topic>();
     }
-}
+

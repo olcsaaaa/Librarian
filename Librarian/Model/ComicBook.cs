@@ -4,10 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Librarian.Model
-{
+namespace Librarian.Model;
     public class ComicBook : Periodical
     {
         public string Category { get; set; }
     }
-}
