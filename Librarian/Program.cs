@@ -1,4 +1,4 @@
-﻿namespace Librarian.Model
+﻿namespace Librarian
 {
     internal class Program
     {

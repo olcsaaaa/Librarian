@@ -9,11 +9,11 @@ namespace Librarian.Model
 {
     public class Settings
     {
-        public static List<User> Users { get; set; }
-        public static List<Opus> Opuses { get; set; }
-        public static List<Category> Categories { get; set; }
-        public static List<Genre> Genres { get; set; }
-        public static List<Language> Languages { get; set; }
-        public static List<Topic> Topics { get; set; }
+        public static List<User> Users { get; set; } = new List<User>();
+        public static List<Opus> Opuses { get; set; } = new List<Opus>();
+        public static List<Category> Categories { get; set; } = new List<Category>();
+        public static List<Genre> Genres { get; set; } = new List<Genre>();
+        public static List<Language> Languages { get; set; } = new List<Language>();
+        public static List<Topic> Topics { get; set; } = new List<Topic>();
     }
 }

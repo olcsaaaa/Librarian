@@ -9,8 +9,8 @@ namespace Librarian
 {
     public interface IConfigurationStore
     {
-       static IConfigurationStore CreateInstance() =>throw new NotImplementedException();
+        static IConfigurationStore CreateInstance() => throw new NotImplementedException();
         void Save();
-        static Settings Settings { get; set; }
+        static Settings Settings { get; private set; }
     }
 }

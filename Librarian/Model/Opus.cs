@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Librarian
 {
-    abstract class Opus
+    public abstract class Opus
     {
     public string Title { get; set; }
     public string Author { get; set; }
