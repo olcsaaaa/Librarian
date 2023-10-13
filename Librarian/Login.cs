@@ -46,11 +46,11 @@ internal class Login
         }
     }
 
-    //TODO: Fix login form
     private (string, string) _ShowLogin()
     {
+        Console.BackgroundColor = ConsoleColor.Black;
         int width = 50;
-        string username = "| Username:";
+        string username = "| Username: ";
         string password = "| ";
         Console.BackgroundColor = ConsoleColor.Black;
         Console.ForegroundColor = ConsoleColor.Magenta;
@@ -74,10 +74,10 @@ internal class Login
         Console.Write(password);
         string passwordIn = MaskedReadLine();
         Console.WriteLine();
-        // Thread.Sleep(2000); 
         Console.SetCursorPosition(Console.WindowWidth / 2 - width / 2 + password.Length + 1,
             Console.WindowHeight / 2 - 1);
         Console.ResetColor();
+
         return (user, passwordIn);
     }
 
@@ -85,29 +85,27 @@ internal class Login
     {
         do
         {
+            Console.ResetColor();
+            Console.Clear();
+            (string user, string passwordIn) userData = _ShowLogin();
+            if (userData.user == "admin" && userData.passwordIn == "admin")
             {
-                Console.Clear();
-                (string user, string passwordIn) userData = _ShowLogin();
-                if (userData.user == "admin" && userData.passwordIn == "admin")
-                {
-                    Console.SetCursorPosition(Console.WindowWidth / 2 - 10, Console.WindowHeight / 2 + 4);
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.BackgroundColor = ConsoleColor.Green;
-                    Console.Write("Hi admin!");
-                    IsLoggedIn = true;
-                    return;
-                }
-                else
-                {
-                    Console.SetCursorPosition(Console.WindowWidth / 2 - 15, Console.WindowHeight / 2 + 4);
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.BackgroundColor = ConsoleColor.DarkRed;
-                    Console.Write("Bad username/password >:(");
-                    Thread.Sleep(6000);
-                }
+                Console.SetCursorPosition(Console.WindowWidth / 2 - 10, Console.WindowHeight / 2 + 4);
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.BackgroundColor = ConsoleColor.Green;
+                Console.Write("Hi admin!");
+                IsLoggedIn = true;
+                return;
+            }
+            else
+            {
+                Console.SetCursorPosition(Console.WindowWidth / 2 - 15, Console.WindowHeight / 2 + 4);
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.BackgroundColor = ConsoleColor.DarkRed;
+                Console.Write("Bad username/password >:(");
             }
         } while (!IsLoggedIn);
 
-        Console.WriteLine("OOTL");
+        Console.ResetColor();
     }
 }
