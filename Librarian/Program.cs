@@ -7,7 +7,7 @@ internal class Program
     static void Main()
     {
         Login login = new Login();
-        login.ShowLogin();
+        login.ShowLoginResult();
         if (login.IsLoggedIn)
         {
             Console.Clear();

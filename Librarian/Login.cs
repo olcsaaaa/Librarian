@@ -4,14 +4,10 @@ internal class Login
 {
     public string Name { get; private set; }
     public bool IsLoggedIn { get; private set; }
-
-    public Login()
-    {
-    }
-
+    
     private string MaskedReadLine(char maskCharacter = '*')
     {
-        char[] chars = new[] { 'á', 'Á', 'é', 'É', 'í', 'Í', 'ó', 'Ó', 'ö', 'Ö', 'ő', 'Ő', 'ú', 'Ú', 'ü', 'Ű' };
+        char[] chars = { 'á', 'Á', 'é', 'É', 'í', 'Í', 'ó', 'Ó', 'ö', 'Ö', 'ő', 'Ő', 'ú', 'Ú', 'ü', 'Ű' };
         string result = "";
         Console.Write("Password: ");
         while (true)
@@ -46,49 +42,55 @@ internal class Login
         }
     }
 
-    private (string, string) _ShowLogin()
+    private void _LoginFrame(int width)
     {
-        Console.BackgroundColor = ConsoleColor.Black;
-        int width = 50;
-        string username = "| Username: ";
-        string password = "| ";
-        Console.BackgroundColor = ConsoleColor.Black;
-        Console.ForegroundColor = ConsoleColor.Magenta;
         Console.SetCursorPosition(Console.WindowWidth / 2 - width / 2, Console.WindowHeight / 2 - 2);
 
-        for (int i = 0; i < width; i++)
-        {
-            Console.Write("-");
-        }
-
-        Console.SetCursorPosition(Console.WindowWidth / 2 - width / 2, Console.WindowHeight / 2 - 1);
-        Console.Write(username);
-        string? user = Console.ReadLine();
-        Console.SetCursorPosition(Console.WindowWidth / 2 - width / 2, Console.WindowHeight / 2 - 2);
         for (int i = 0; i < width; i++)
         {
             Console.Write("-");
         }
 
         Console.SetCursorPosition(Console.WindowWidth / 2 - width / 2, Console.WindowHeight / 2);
-        Console.Write(password);
-        string passwordIn = MaskedReadLine();
-        Console.WriteLine();
-        Console.SetCursorPosition(Console.WindowWidth / 2 - width / 2 + password.Length + 1,
-            Console.WindowHeight / 2 - 1);
-        Console.ResetColor();
-
-        return (user, passwordIn);
+        for (int i = 0; i < width; i++)
+        {
+            Console.Write("-");
+        }
     }
 
-    public void ShowLogin()
+    private (string, string) _ShowLogin()
+    {
+        int width = 50;
+        string username = " Username: ";
+        string password = " ";
+        Console.ForegroundColor = ConsoleColor.Magenta;
+        
+        //creates login frame and reads username input from console
+        _LoginFrame(width);
+        Console.SetCursorPosition(Console.WindowWidth / 2 - width / 2, Console.WindowHeight / 2 - 1);
+        Console.Write(username);
+        string? user = Console.ReadLine();
+        Console.Clear();
+        _LoginFrame(width);
+        // reads password input from console
+        Console.SetCursorPosition(Console.WindowWidth / 2 - width / 2, Console.WindowHeight / 2 - 1);
+        Console.Write(password);
+        string passwordIn = MaskedReadLine();
+        // Resets console colors and returns username and password
+        Console.ResetColor();
+        return (user, passwordIn)!;
+    }
+
+    public void ShowLoginResult()
     {
         do
         {
             Console.ResetColor();
             Console.Clear();
+            // calls "_ShowLogin" function to get username and password from user
             (string user, string passwordIn) userData = _ShowLogin();
-            if (userData.user == "admin" && userData.passwordIn == "admin")
+            // decides if the username and password is correct
+            if (userData is { user: "admin", passwordIn: "admin" })
             {
                 Console.SetCursorPosition(Console.WindowWidth / 2 - 10, Console.WindowHeight / 2 + 4);
                 Console.ForegroundColor = ConsoleColor.White;
@@ -104,6 +106,7 @@ internal class Login
                 Console.BackgroundColor = ConsoleColor.DarkRed;
                 Console.Write("Bad username/password >:(");
             }
+            Thread.Sleep(2000);
         } while (!IsLoggedIn);
 
         Console.ResetColor();

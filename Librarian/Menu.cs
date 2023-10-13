@@ -55,7 +55,6 @@ public class Menu
         Console.WriteLine("3. remove books");
         Console.WriteLine("0. Go back");
         Console.WriteLine();
-        Console.WriteLine("Please choose: ");
-        
+        Console.Write("Please choose: ");
     }
 }
