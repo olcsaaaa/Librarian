@@ -1,4 +1,4 @@
-﻿namespace Librarian;
+namespace Librarian;
 
 internal class Program
 {
@@ -19,7 +19,7 @@ internal class Program
 
     static string MaskedReadLine(char MaskCharacter = '*')
     {
-        char[] chars = new char[] { 'á', 'Á', 'é', 'É', 'í', 'Í', 'ó', 'Ó', 'ö', 'Ö', 'ő', 'Ő', 'ú', 'Ú', 'ü', 'Ű' };
+        char[] chars = new[]{ 'á', 'Á', 'é', 'É', 'í', 'Í', 'ó', 'Ó', 'ö', 'Ö', 'ő', 'Ő', 'ú', 'Ú', 'ü', 'Ű' };
         string result = "";
         Console.Write("Password: ");
         while (true)
