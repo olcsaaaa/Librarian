@@ -17,7 +17,7 @@ internal class Program
         Login();
     }
 
-    static string MaskedReadLine(char MaskCharacter = '*')
+    static string MaskedReadLine(char maskCharacter = '*')
     {
         char[] chars = new[]{ 'á', 'Á', 'é', 'É', 'í', 'Í', 'ó', 'Ó', 'ö', 'Ö', 'ő', 'Ő', 'ú', 'Ú', 'ü', 'Ű' };
         string result = "";
@@ -48,7 +48,7 @@ internal class Program
             else if (exist || (cki.KeyChar > 32 && cki.KeyChar < 127))
             {
                 result += cki.KeyChar;
-                Console.Write(MaskCharacter);
+                Console.Write(maskCharacter);
             }
 
             if (cki.Key == ConsoleKey.Enter) return result;
@@ -69,10 +69,11 @@ internal class Program
         } 
 
         Console.SetCursorPosition(Console.WindowWidth / 2 - width / 2, Console.WindowHeight / 2 - 1);
-        Console.WriteLine(username); 
+        Console.Write(username);
+        string? user = Console.ReadLine();
         Console.SetCursorPosition(Console.WindowWidth / 2 - width / 2, Console.WindowHeight / 2);
         Console.Write(password);
-        MaskedReadLine();
+        string passwordIn = MaskedReadLine();
         Console.WriteLine();
         Console.SetCursorPosition(Console.WindowWidth / 2 - width / 2, Console.WindowHeight / 2+1);
         for (int i = 0; i < width; i++)
@@ -81,7 +82,13 @@ internal class Program
         }
         // Thread.Sleep(2000); 
         Console.SetCursorPosition(Console.WindowWidth / 2 - width / 2+password.Length+1, Console.WindowHeight / 2 - 1);
-        string user = MaskedReadLine();
         Console.ResetColor();
+        if (user=="admin"&&passwordIn=="admin")
+        {
+            Console.SetCursorPosition(Console.WindowWidth/2-10, Console.WindowHeight/2+4);
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.BackgroundColor = ConsoleColor.Green;
+            Console.Write("Hi admin!");
+        }
     }
 }
