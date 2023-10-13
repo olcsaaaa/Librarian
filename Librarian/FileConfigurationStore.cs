@@ -61,7 +61,7 @@ namespace Librarian;
         private PropertyInfo _GetProperty<T>()
         {
             var props = Settings.GetType().GetProperties();
-            PropertyInfo p = null;
+            PropertyInfo? p = null;
             foreach (var p1 in props)
             {
                 if (typeof(T) == p1.PropertyType.GenericTypeArguments[0])
