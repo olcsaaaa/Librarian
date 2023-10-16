@@ -4,7 +4,7 @@ public class Menu
 {
     public int? ConvertKey(int key)
     {
-        if (key >= 48 && key <= 57)
+        if (key is >= 48 and <= 57)
         {
             return key -= 48;
         }
@@ -22,6 +22,7 @@ public class Menu
             switch (key)
             {
                 case 1:
+                    Console.Clear();
                     _ShowBookMenu();
                     break;
                 case 6:
@@ -47,14 +48,26 @@ public class Menu
 
     private void _ShowBookMenu()
     {
-        Console.Clear();
         Console.WriteLine("-------Books-------");
         Console.WriteLine();
         Console.WriteLine("1. list books");
         Console.WriteLine("2. add books");
         Console.WriteLine("3. remove books");
-        Console.WriteLine("0. Go back");
+        Console.WriteLine("5. Go back");
         Console.WriteLine();
         Console.Write("Please choose: ");
+        int? key = 0;
+           key = ConvertKey(Console.Read());
+        switch (key)
+        {
+            case 1:
+                Console.WriteLine("[books go here]");
+                Thread.Sleep(1000);
+                break;
+            case 2:
+                break;
+            case 5:
+                return;
+        }
     }
 }

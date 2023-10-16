@@ -2,7 +2,7 @@ namespace Librarian;
 
 internal class Program
 {
-    public IConfigurationStore Config { get; private set; }
+    public static IConfigurationStore Config { get; private set; }
 
     static void Main()
     {
